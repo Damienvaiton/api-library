@@ -34,7 +34,7 @@ Permet d'être lancé sans compilation et de relancer dynamiquement l'applicatio
 1) Identifier et corriger l'erreur de la route POST authors
 2) Renvoyer une erreur personnalisée avec un code 404 si l'auteur n'est pas trouvée lors des routes PATCH et GET/{id}
 3) 
-    1) Développer la route GET /books
+    1) Développer la route GET /books 
     2) Développer la route GET /books/{id}
     3) Développer la route POST /books
     4) Développer la route PATCH /books/{id}
