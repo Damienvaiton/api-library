@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Route, Tags } from "tsoa";
+import { Body, Controller, Get, Patch, Post, Route, Tags } from "tsoa";
 import { BookDTO } from "../dto/book.dto";
 import { bookService } from "../services/book.service";
 import { Author } from "../models/author.model";
@@ -35,5 +35,13 @@ export class BookController extends Controller {
 			requestBody.publish_year,
 			requestBody.isbn,
 		);
+	}
+
+	@Patch("/{id}")
+	public async updateBook(
+		id: number,
+		@Body() requestBody: BookDTO
+	): Promise<BookDTO | null> {
+		return bookService.updateBook(id, requestBody);
 	}
 }
