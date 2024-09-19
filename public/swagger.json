@@ -112,6 +112,73 @@
 				],
 				"security": [],
 				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateBookCollection",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BookCollectionDTO"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"BookCollections"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/BookCollectionDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/bookCollections/{id}": {
+			"get": {
+				"operationId": "GetBookCollection",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/BookCollectionDTO"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"BookCollections"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
 			}
 		},
 		"/books": {
