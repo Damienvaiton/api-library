@@ -1,8 +1,7 @@
 import { Body, Controller, Get, Patch, Post, Route, Tags } from "tsoa";
 import { BookDTO } from "../dto/book.dto";
 import { bookService } from "../services/book.service";
-import { Author } from "../models/author.model";
-import { AuthorDTO } from "../dto/author.dto";
+
 
 @Route("books")
 @Tags("Books")
