@@ -30,19 +30,31 @@ export class BookCollectionService {
 		});
 	}
 
-    public async updateBookCollection(
-        id: number,
-        bookCollection: BookCollectionDTO
-    ): Promise<BookCollection | null> {
-        const bookCollectionToUpdate = await BookCollection.findByPk(id);
-        if (!bookCollectionToUpdate) {
-            return null;
-        }
-        if (bookCollection.available) bookCollectionToUpdate.available = bookCollection.available;
-        if (bookCollection.state) bookCollectionToUpdate.state = bookCollection.state;
-        await bookCollectionToUpdate.save();
-        return bookCollectionToUpdate;
-    }
+	public async updateBookCollection(
+		id: number,
+		bookCollection: BookCollectionDTO
+	): Promise<BookCollection | null> {
+		const bookCollectionToUpdate = await BookCollection.findByPk(id);
+		if (!bookCollectionToUpdate) {
+			throw new Error(`BookCollection with id ${id} not found`);
+		}
+		if (bookCollection.book_id) {
+			const bservice = new BookService();
+			const book = await bservice.getBook(bookCollection.book_id);
+			if (!book) {
+				throw new Error(`Book with id ${bookCollection.book_id} not found`);
+			}
+			bookCollectionToUpdate.book_id = bookCollection.book_id;
+		}
+		console.log(bookCollection);
+		if (bookCollection.available) console.log(bookCollection.available);
+		bookCollectionToUpdate.available = bookCollection.available;
+		if (bookCollection.state) console.log(bookCollection.state);
+		bookCollectionToUpdate.state = bookCollection.state;
+		await bookCollectionToUpdate.save();
+
+		return bookCollectionToUpdate;
+	}
 }
 
 export const bookCollectionService = new BookCollectionService();

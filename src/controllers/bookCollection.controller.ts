@@ -5,7 +5,7 @@ import {
 } from "../services/bookCollection.service";
 import { BookCollectionDTO } from "../dto/bookCollection.dto";
 
-@Route("bookCollections")
+@Route("book-collections")
 @Tags("BookCollections")
 export class BookCollectionController extends Controller {
 	@Get("/")
