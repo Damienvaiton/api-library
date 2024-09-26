@@ -1,3 +1,4 @@
+import { BookCollectionDTO } from "../dto/bookCollection.dto";
 import { BookCollection } from "../models/bookCollection.model";
 import { BookService } from "./book.service";
 
@@ -28,6 +29,20 @@ export class BookCollectionService {
 			state: state,
 		});
 	}
+
+    public async updateBookCollection(
+        id: number,
+        bookCollection: BookCollectionDTO
+    ): Promise<BookCollection | null> {
+        const bookCollectionToUpdate = await BookCollection.findByPk(id);
+        if (!bookCollectionToUpdate) {
+            return null;
+        }
+        if (bookCollection.available) bookCollectionToUpdate.available = bookCollection.available;
+        if (bookCollection.state) bookCollectionToUpdate.state = bookCollection.state;
+        await bookCollectionToUpdate.save();
+        return bookCollectionToUpdate;
+    }
 }
 
 export const bookCollectionService = new BookCollectionService();

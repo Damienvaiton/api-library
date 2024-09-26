@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Route, Tags } from "tsoa";
+import { Body, Controller, Get, Patch, Post, Route, Tags } from "tsoa";
 import {
 	bookCollectionService,
 	BookCollectionService,
@@ -29,5 +29,13 @@ export class BookCollectionController extends Controller {
 			requestBody.available,
 			requestBody.state
 		);
+	}
+
+	@Patch("/{id}")
+	public async updateBookCollection(
+		id: number,
+		@Body() requestBody: BookCollectionDTO
+	): Promise<BookCollectionDTO | null> {
+		return bookCollectionService.updateBookCollection(id, requestBody);
 	}
 }
