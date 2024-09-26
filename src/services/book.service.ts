@@ -6,6 +6,7 @@ import { AuthorService } from "./author.service";
 import { BookCollectionService } from "./bookCollection.service";
 
 export class BookService {
+	
 	public async getAllBooks(): Promise<Book[]> {
 		return Book.findAll({
 			include: [
