@@ -38,4 +38,6 @@ export class BookCollectionController extends Controller {
 	): Promise<BookCollectionDTO | null> {
 		return bookCollectionService.updateBookCollection(id, requestBody);
 	}
+
+
 }

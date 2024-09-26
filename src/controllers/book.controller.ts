@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Post, Route, Tags } from "tsoa";
+import { Body, Controller, Delete, Get, Patch, Post, Route, Tags } from "tsoa";
 import { BookDTO } from "../dto/book.dto";
 import { bookService } from "../services/book.service";
 
@@ -42,5 +42,10 @@ export class BookController extends Controller {
 		@Body() requestBody: BookDTO
 	): Promise<BookDTO | null> {
 		return bookService.updateBook(id, requestBody);
+	}
+
+	@Delete("/{id}")
+	public async deleteBook(id: number): Promise<void> {
+		await bookService.deleteBook(id);
 	}
 }
