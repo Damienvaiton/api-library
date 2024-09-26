@@ -1,4 +1,5 @@
 import { BookDTO } from "../dto/book.dto";
+import { BookCollectionDTO } from "../dto/bookCollection.dto";
 import { Author } from "../models/author.model";
 import { Book } from "../models/book.model";
 import { AuthorService } from "./author.service";
@@ -82,6 +83,17 @@ export class BookService {
 		} else {
 			throw new Error(`Book with id ${id} not found`);
 		}
+	}
+
+	public async getBooksCollectionbyBookId(
+		id: number
+	): Promise<BookCollectionDTO[]> {
+		const bookcolserv = new BookCollectionService();
+		const bookcollections = await bookcolserv.getAllBookCollections();
+		const bookCollectionsByBookId = bookcollections.filter(
+			(bookcollection) => bookcollection.book_id === id
+		);
+		return bookCollectionsByBookId;
 	}
 }
 

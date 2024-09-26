@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Patch, Post, Route, Tags } from "tsoa";
 import { BookDTO } from "../dto/book.dto";
 import { bookService } from "../services/book.service";
-
+import { BookCollectionDTO } from "../dto/bookCollection.dto";
 
 @Route("books")
 @Tags("Books")
@@ -26,13 +26,11 @@ export class BookController extends Controller {
 	//Crée un nouveau livre
 	@Post("/")
 	public async createBook(@Body() requestBody: BookDTO): Promise<BookDTO> {
-	
-
 		return bookService.createBook(
 			requestBody.title,
 			requestBody.author?.id || -1,
 			requestBody.publish_year,
-			requestBody.isbn,
+			requestBody.isbn
 		);
 	}
 
@@ -47,5 +45,12 @@ export class BookController extends Controller {
 	@Delete("/{id}")
 	public async deleteBook(id: number): Promise<void> {
 		await bookService.deleteBook(id);
+	}
+
+	@Get("{id}/books-collection")
+	public async getBooksCollectionbyBookId(
+		id: number
+	): Promise<BookCollectionDTO[]> {
+		return bookService.getBooksCollectionbyBookId(id);
 	}
 }
