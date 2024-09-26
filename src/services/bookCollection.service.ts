@@ -55,6 +55,13 @@ export class BookCollectionService {
 
 		return bookCollectionToUpdate;
 	}
+
+	public async deleteBookCollection(id: number): Promise<void> {
+		const bookCollection = await BookCollection.findByPk(id);
+		if (bookCollection) {
+			await bookCollection.destroy();
+		}
+	}
 }
 
 export const bookCollectionService = new BookCollectionService();

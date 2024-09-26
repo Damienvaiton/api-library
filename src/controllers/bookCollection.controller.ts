@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Post, Route, Tags } from "tsoa";
+import { Body, Controller, Delete, Get, Patch, Post, Route, Tags } from "tsoa";
 import {
 	bookCollectionService,
 	BookCollectionService,
@@ -39,5 +39,8 @@ export class BookCollectionController extends Controller {
 		return bookCollectionService.updateBookCollection(id, requestBody);
 	}
 
-
+	@Delete("/{id}")
+	public async deleteBookCollection(id: number): Promise<void> {
+		await bookCollectionService.deleteBookCollection(id);
+	}
 }

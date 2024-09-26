@@ -1,3 +1,4 @@
+import { BookDTO } from "../dto/book.dto";
 import { Author } from "../models/author.model";
 import { BookService } from "./book.service";
 import { BookCollectionService } from "./bookCollection.service";
@@ -71,6 +72,18 @@ export class AuthorService {
 			return author;
 		}
 		return null;
+	}
+
+	// Récupère les livres d'un auteur
+	public async getBooksByAuthor(id: number): Promise<BookDTO[] | null> {
+		const author = await Author.findByPk(id);
+		if (!author) {
+			return null;
+		}
+		const bookserv = new BookService();
+		const books = await bookserv.getAllBooks();
+
+		return books.filter((book) => book.author_id === id);
 	}
 }
 

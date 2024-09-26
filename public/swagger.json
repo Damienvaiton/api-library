@@ -233,6 +233,29 @@
 						}
 					}
 				}
+			},
+			"delete": {
+				"operationId": "DeleteBookCollection",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"tags": [
+					"BookCollections"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
 			}
 		},
 		"/books": {
@@ -553,6 +576,42 @@
 						}
 					}
 				}
+			}
+		},
+		"/authors/{id}/books": {
+			"get": {
+				"operationId": "GetBooksByAuthor",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/BookDTO"
+									},
+									"type": "array",
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authors"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
 			}
 		}
 	},
