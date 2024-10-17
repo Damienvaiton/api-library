@@ -8,6 +8,7 @@ import {
   Body,
   Tags,
   Patch,
+  Security,
 } from "tsoa";
 import { authorService } from "../services/author.service";
 import {
@@ -19,21 +20,25 @@ import { BookOutputDTO } from "../dto/book.dto";
 
 @Route("authors")
 @Tags("Authors")
+@Security("jwt")
 export class AuthorController extends Controller {
   // Récupère tous les auteurs
   @Get("/")
+  @Security("jwt", ["author:read"])
   public async getAllAuthors(): Promise<AuthorOutputDTO[]> {
     return authorService.getAllAuthors();
   }
 
   // Récupère un auteur par ID
   @Get("{id}")
+
   public async getAuthorById(@Path() id: number): Promise<AuthorOutputDTO> {
     return authorService.getAuthorById(id);
   }
 
   // Crée un nouvel auteur
   @Post("/")
+  @Security("jwt", ["author:create"])
   public async createAuthor(
     @Body() requestBody: AuthorInputDTO,
   ): Promise<AuthorOutputDTO> {
@@ -43,12 +48,14 @@ export class AuthorController extends Controller {
 
   // Supprime un auteur par ID
   @Delete("{id}")
+  @Security("jwt", ["author:delete"])
   public async deleteAuthor(@Path() id: number): Promise<void> {
     await authorService.deleteAuthor(id);
   }
 
   // Met à jour un auteur par ID
   @Patch("{id}")
+  @Security("jwt", ["author:update"])
   public async updateAuthor(
     @Path() id: number,
     @Body() requestBody: AuthorInputPatchDTO,
