@@ -23,7 +23,7 @@ import { BookCollectionOutputDTO } from "../dto/bookCollection.dto";
 @Security("jwt")
 export class BookController extends Controller {
 	@Get("/")
-  @Security("jwt", ["books:read"])
+  @Security("jwt", ["book:read"])
 	public async getAllBooks(): Promise<BookOutputDTO[]> {
 		return bookService.getAllBooks();
 	}
@@ -34,7 +34,7 @@ export class BookController extends Controller {
 	}
 
 	@Post("/")
-  @Security("jwt", ["books:create"])
+  @Security("jwt", ["book:create"])
 	public async postBooks(
 		@Body() requestBody: BookInputDTO
 	): Promise<BookOutputDTO> {
@@ -47,7 +47,7 @@ export class BookController extends Controller {
 	}
 
 	@Patch("{id}")
-  @Security("jwt", ["books:update"])
+  @Security("jwt", ["book:update"])
 	public async patchBook(
 		@Path("id") id: number,
 		@Body() requestBody: BookInputPatchDTO
@@ -62,7 +62,7 @@ export class BookController extends Controller {
 	}
 
 	@Delete("{id}")
-  @Security("jwt", ["books:delete"])
+  @Security("jwt", ["book:delete"])
 	public async deleteBook(@Path("id") id: number): Promise<void> {
 		await bookService.deleteBook(id);
 	}

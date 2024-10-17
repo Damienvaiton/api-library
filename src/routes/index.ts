@@ -326,7 +326,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/book-collections',
-            authenticateMiddleware([{"jwt":["book-collections:read"]}]),
+            authenticateMiddleware([{"jwt":["bookCollection:read"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController)),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController.prototype.getAllBooksCollection)),
 
@@ -387,7 +387,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.post('/book-collections',
-            authenticateMiddleware([{"jwt":["book-collections:create"]}]),
+            authenticateMiddleware([{"jwt":["bookCollection:create"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController)),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController.prototype.postBookCollection)),
 
@@ -418,7 +418,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.patch('/book-collections/:id',
-            authenticateMiddleware([{"jwt":["book-collections:update"]}]),
+            authenticateMiddleware([{"jwt":["bookCollection:update"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController)),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController.prototype.patchBookCollection)),
 
@@ -450,7 +450,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.delete('/book-collections/:id',
-            authenticateMiddleware([{"jwt":["book-collections:delete"]}]),
+            authenticateMiddleware([{"jwt":["bookCollection:delete"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController)),
             ...(fetchMiddlewares<RequestHandler>(BookCollectionController.prototype.deleteBookCollection)),
 
@@ -481,7 +481,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/books',
-            authenticateMiddleware([{"jwt":["books:read"]}]),
+            authenticateMiddleware([{"jwt":["book:read"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookController)),
             ...(fetchMiddlewares<RequestHandler>(BookController.prototype.getAllBooks)),
 
@@ -542,7 +542,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.post('/books',
-            authenticateMiddleware([{"jwt":["books:create"]}]),
+            authenticateMiddleware([{"jwt":["book:create"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookController)),
             ...(fetchMiddlewares<RequestHandler>(BookController.prototype.postBooks)),
 
@@ -573,7 +573,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.patch('/books/:id',
-            authenticateMiddleware([{"jwt":["books:update"]}]),
+            authenticateMiddleware([{"jwt":["book:update"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookController)),
             ...(fetchMiddlewares<RequestHandler>(BookController.prototype.patchBook)),
 
@@ -605,7 +605,7 @@ export function RegisterRoutes(app: Router) {
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.delete('/books/:id',
-            authenticateMiddleware([{"jwt":["books:delete"]}]),
+            authenticateMiddleware([{"jwt":["book:delete"]}]),
             ...(fetchMiddlewares<RequestHandler>(BookController)),
             ...(fetchMiddlewares<RequestHandler>(BookController.prototype.deleteBook)),
 

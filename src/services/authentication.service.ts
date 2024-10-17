@@ -11,41 +11,40 @@ interface Permissions {
 	bookCollection: string[];
 }
 
+const adminPermissions = [
+	"author:read",
+	"author:create",
+	"author:update",
+	"author:delete",
+	"book:read",
+	"book:create",
+	"book:update",
+	"book:delete",
+	"bookCollection:read",
+	"bookCollection:create",
+	"bookCollection:update",
+	"bookCollection:delete",
+];
 
-const adminPermissions = {
-	"author:read": true,
-	"author:create": true,
-	"author:update": true,
-	"author:delete": true,
-	"book:read": true,
-	"book:create": true,
-	"book:update": true,
-	"book:delete": true,
-	"bookCollection:read": true,
-	"bookCollection:create": true,
-	"bookCollection:update": true,
-	"bookCollection:delete": true,
-};
+const gerantPermissions = [
+	"author:read",
+	"author:create",
+	"author:update",
+	"book:read",
+	"book:create",
+	"book:update",
+	"bookCollection:read",
+	"bookCollection:create",
+	"bookCollection:update",
+	"bookCollection:delete",
+];
 
-const gerantPermissions = {
-	"author:read": true,
-	"author:create": true,
-	"author:update": true,
-	"book:read": true,
-	"book:create": true,
-	"book:update": true,
-	"bookCollection:read": true,
-	"bookCollection:create": true,
-	"bookCollection:update": true,
-	"bookCollection:delete": true,
-};
-
-const userPermissions = {
-	"author:read": true,
-	"book:read": true,
-	"book:create": true,
-	"bookCollection:read": true,
-};
+const userPermissions = [
+	"author:read",
+	"book:read",
+	"book:create",
+	"bookCollection:read",
+];
 
 export class AuthenticationService {
 	public async authenticate(

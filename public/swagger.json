@@ -469,7 +469,7 @@
 				"security": [
 					{
 						"jwt": [
-							"book-collections:read"
+							"bookCollection:read"
 						]
 					}
 				],
@@ -495,7 +495,7 @@
 				"security": [
 					{
 						"jwt": [
-							"book-collections:create"
+							"bookCollection:create"
 						]
 					}
 				],
@@ -567,7 +567,7 @@
 				"security": [
 					{
 						"jwt": [
-							"book-collections:update"
+							"bookCollection:update"
 						]
 					}
 				],
@@ -606,7 +606,7 @@
 				"security": [
 					{
 						"jwt": [
-							"book-collections:delete"
+							"bookCollection:delete"
 						]
 					}
 				],
@@ -647,7 +647,7 @@
 				"security": [
 					{
 						"jwt": [
-							"books:read"
+							"book:read"
 						]
 					}
 				],
@@ -673,7 +673,7 @@
 				"security": [
 					{
 						"jwt": [
-							"books:create"
+							"book:create"
 						]
 					}
 				],
@@ -745,7 +745,7 @@
 				"security": [
 					{
 						"jwt": [
-							"books:update"
+							"book:update"
 						]
 					}
 				],
@@ -784,7 +784,7 @@
 				"security": [
 					{
 						"jwt": [
-							"books:delete"
+							"book:delete"
 						]
 					}
 				],
